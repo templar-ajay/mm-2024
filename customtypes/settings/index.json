@@ -1,0 +1,78 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "primary_color": {
+        "type": "Color",
+        "config": {
+          "label": "Primary Color",
+          "placeholder": ""
+        }
+      },
+      "secondary_color": {
+        "type": "Color",
+        "config": {
+          "label": "Secondary Color",
+          "placeholder": ""
+        }
+      },
+      "text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Text Color",
+          "placeholder": ""
+        }
+      },
+      "background_color": {
+        "type": "Color",
+        "config": {
+          "label": "Background Color",
+          "placeholder": ""
+        }
+      },
+      "gtm_id": {
+        "type": "Text",
+        "config": {
+          "label": "GTM_ID",
+          "placeholder": ""
+        }
+      },
+      "favicon": {
+        "type": "Image",
+        "config": {
+          "label": "favicon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    },
+    "Default Meta Info": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "OG Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "id": "hero",
+  "id": "cta",
   "type": "SharedSlice",
-  "name": "Hero",
-  "description": "Hero",
+  "name": "Cta",
+  "description": "Cta",
   "variations": [
     {
       "id": "default",
@@ -12,54 +12,48 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "left_side_small_icon": {
+        "top_small_icon": {
           "type": "Image",
           "config": {
-            "label": "Left Side Small Icon",
+            "label": "Top Small Icon",
             "constraint": {},
             "thumbnails": []
           }
         },
-        "heading_h1": {
+        "main_text": {
           "type": "StructuredText",
           "config": {
-            "label": "Heading H1",
+            "label": "Main Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1"
+            "single": "paragraph,strong,em"
           }
         },
-        "heading_h2": {
+        "secondary_text": {
           "type": "StructuredText",
           "config": {
-            "label": "Heading H2",
+            "label": "Secondary Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,strong,em,hyperlink"
+            "single": "paragraph,strong,em"
           }
         },
-        "text": {
+        "below_text": {
           "type": "StructuredText",
           "config": {
-            "label": "Text",
+            "label": "Below Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "single": "strong,em,paragraph,hyperlink"
           }
         },
-        "image": {
-          "type": "Image",
+        "after_cta_text": {
+          "type": "StructuredText",
           "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "video_popup_iframe": {
-          "type": "Text",
-          "config": {
-            "label": "Video Popup Iframe",
-            "placeholder": ""
+            "label": "After CTA Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
           }
         }
       },

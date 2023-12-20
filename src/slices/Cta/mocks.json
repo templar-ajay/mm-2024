@@ -1,0 +1,76 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"top_small_icon": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+					"width": 4010,
+					"height": 4010
+				},
+				"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+				"width": 4010,
+				"height": 4010,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"main_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Occaecat nisi labore consequat adipisicing ad mollit. In dolor adipisicing elit pariatur tempor quis."
+						}
+					}
+				]
+			},
+			"secondary_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt eiusmod ullamco consequat in sunt laborum ad nulla tempor ipsum. Nostrud minim ea adipisicing anim excepteur. Ex amet cillum mollit occaecat mollit eu non enim enim eu ea non."
+						}
+					}
+				]
+			},
+			"below_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit aute deserunt labore sint enim dolor adipisicing in pariatur magna laboris labore. Cupidatat enim do sunt minim incididunt ut voluptate officia ea minim voluptate laboris. Culpa eiusmod do ea commodo ullamco incididunt eu consequat nostrud dolor sint duis amet cupidatat."
+						}
+					}
+				]
+			},
+			"after_cta_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt pariatur id ipsum enim esse et in sint dolor non esse eiusmod nisi adipisicing. Enim aute esse laboris nostrud cillum velit deserunt. Tempor exercitation ex duis occaecat exercitation aliquip cupidatat aliquip est et."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

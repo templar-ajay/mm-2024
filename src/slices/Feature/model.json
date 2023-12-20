@@ -1,0 +1,54 @@
+{
+  "id": "feature",
+  "type": "SharedSlice",
+  "name": "Feature",
+  "description": "Feature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_side_small_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Left Side Small Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "display_date": {
+          "type": "Boolean",
+          "config": {
+            "label": "Display Date?",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "heading_h2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading_h2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,strong,em"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl,preformatted"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
