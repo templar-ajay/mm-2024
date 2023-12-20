@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = FeatureSlice | HeroSlice;
+type PageDocumentDataSlicesSlice = CtaSlice | FeatureSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -228,6 +228,16 @@ export interface CtaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   below_text: prismic.RichTextField;
+
+  /**
+   * CTA Link field in *Cta → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
 
   /**
    * After CTA Text field in *Cta → Primary*
