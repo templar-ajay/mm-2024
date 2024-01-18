@@ -16,6 +16,7 @@ const config: Config = {
         display: ["var(--font-display)"],
       },
       screens: {
+        mobile: "450px",
         tablet: "640px",
         largeTablet: "840px",
       },
