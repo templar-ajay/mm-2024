@@ -31,7 +31,10 @@ export default async function Icon() {
           color: "white",
         }}
       >
-        <img src={favicon.url} alt={favicon.alt} />
+        <img
+          src={favicon.url || "default.png"}
+          alt={favicon.alt || "web factory icon"}
+        />
       </div>
     ),
     // ImageResponse options
