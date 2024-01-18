@@ -264,9 +264,77 @@ export type CtaSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cta → Primary*
+ */
+export interface CtaSliceIFramePrimary {
+  /**
+   * Top Small Icon field in *Cta → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.primary.top_small_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  top_small_icon: prismic.ImageField<never>;
+
+  /**
+   * iFrame field in *Cta → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.primary.iframe
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  iframe: prismic.KeyTextField;
+
+  /**
+   * After CTA Text field in *Cta → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.primary.after_cta_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  after_cta_text: prismic.RichTextField;
+
+  /**
+   * Height(px) Affects Performnce Score field in *Cta → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.primary.height
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  height: prismic.NumberField;
+
+  /**
+   * Maximum Width (px) (optional) field in *Cta → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.primary.max_width
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  max_width: prismic.NumberField;
+}
+
+/**
+ * iFrame variation for Cta Slice
+ *
+ * - **API ID**: `iFrame`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CtaSliceIFrame = prismic.SharedSliceVariation<
+  "iFrame",
+  Simplify<CtaSliceIFramePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cta*
  */
-type CtaSliceVariation = CtaSliceDefault;
+type CtaSliceVariation = CtaSliceDefault | CtaSliceIFrame;
 
 /**
  * Cta Shared Slice
@@ -463,8 +531,10 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       CtaSlice,
       CtaSliceDefaultPrimary,
+      CtaSliceIFramePrimary,
       CtaSliceVariation,
       CtaSliceDefault,
+      CtaSliceIFrame,
       FeatureSlice,
       FeatureSliceDefaultPrimary,
       FeatureSliceVariation,

@@ -66,6 +66,55 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "iFrame",
+      "name": "iFrame",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "top_small_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Top Small Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "iframe": {
+          "type": "Text",
+          "config": {
+            "label": "iFrame",
+            "placeholder": ""
+          }
+        },
+        "after_cta_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "After CTA Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "height": {
+          "type": "Number",
+          "config": {
+            "label": "Height(px) Affects Performnce Score",
+            "placeholder": ""
+          }
+        },
+        "max_width": {
+          "type": "Number",
+          "config": {
+            "label": "Maximum Width (px) (optional)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

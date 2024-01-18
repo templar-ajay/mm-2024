@@ -1,6 +1,14 @@
 import Bounded from "@/components/Bounded";
 import { getSettings } from "@/utils";
-import { Content } from "@prismicio/client";
+import {
+  ColorField,
+  Content,
+  ImageField,
+  KeyTextField,
+  LinkField,
+  NumberField,
+  RichTextField,
+} from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -12,16 +20,7 @@ export type CtaProps = SliceComponentProps<Content.CtaSlice>;
 /**
  * Component for "Cta" Slices.
  */
-const Cta = async ({ slice }: CtaProps): Promise<JSX.Element> => {
-  const {
-    main_text,
-    secondary_text,
-    cta_link,
-    below_text,
-    after_cta_text,
-    top_small_icon,
-  } = slice.primary;
-
+export default async function Cta({ slice }: CtaProps): Promise<JSX.Element> {
   const settings = await getSettings();
   const { text_color, background_color } = settings.data;
 
@@ -30,6 +29,56 @@ const Cta = async ({ slice }: CtaProps): Promise<JSX.Element> => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+      {slice.variation === "default" && (
+        <DefaultCTA
+          top_small_icon={slice.primary.top_small_icon}
+          main_text={slice.primary.main_text}
+          secondary_text={slice.primary.secondary_text}
+          cta_link={slice.primary.cta_link}
+          below_text={slice.primary.below_text}
+          after_cta_text={slice.primary.after_cta_text}
+          text_color={text_color}
+          background_color={background_color}
+        />
+      )}
+      {slice.variation === "iFrame" && (
+        <IframeCTA
+          top_small_icon={slice.primary.top_small_icon}
+          iframe={slice.primary.iframe}
+          height={slice.primary.height}
+          max_width={slice.primary.max_width}
+          after_cta_text={slice.primary.after_cta_text}
+          text_color={settings.data.text_color}
+          background_color={settings.data.background_color}
+        />
+      )}
+    </Bounded>
+  );
+}
+
+type defaultCTAProps = {
+  main_text: RichTextField;
+  secondary_text: RichTextField;
+  cta_link: LinkField;
+  below_text: RichTextField;
+  after_cta_text: RichTextField;
+  top_small_icon: ImageField;
+  background_color: ColorField;
+  text_color: ColorField;
+};
+
+function DefaultCTA({
+  main_text,
+  secondary_text,
+  cta_link,
+  below_text,
+  after_cta_text,
+  top_small_icon,
+  background_color,
+  text_color,
+}: defaultCTAProps): JSX.Element {
+  return (
+    <>
       <div className="w-full flex px-1 largeTablet:px-6 mb-0">
         <div className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[200px] w-full to-gray-800">
           <PrismicNextImage
@@ -115,8 +164,84 @@ const Cta = async ({ slice }: CtaProps): Promise<JSX.Element> => {
           />
         </div>
       </div>
-    </Bounded>
+    </>
   );
+}
+
+type iFrameCTAProps = {
+  top_small_icon: ImageField;
+  iframe: KeyTextField;
+  height: NumberField;
+  max_width: NumberField;
+  after_cta_text: RichTextField;
+  background_color: ColorField;
+  text_color: ColorField;
 };
 
-export default Cta;
+function IframeCTA({
+  top_small_icon,
+  iframe,
+  height,
+  max_width,
+  after_cta_text,
+  background_color,
+  text_color,
+}: iFrameCTAProps): JSX.Element {
+  return (
+    <>
+      <div className="w-full flex px-1 largeTablet:px-6 mb-0">
+        <div className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[200px] w-full to-gray-800">
+          <PrismicNextImage
+            field={top_small_icon}
+            className="absolute -right-[28px] -top-[28px]"
+          />
+        </div>
+        <div className="flex-1"></div>
+      </div>
+      <div className="mb-[60px] w-full">
+        <div className="w-full max-w-[1256px] mx-auto flex justify-center flex-col items-center">
+          <div className="w-full items-center flex flex-col ">
+            <div
+              style={{ maxWidth: max_width || "" }}
+              className="w-full max-w-lg h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432] transition-all ease-in-out duration-400"
+            >
+              <div
+                className="h-full w-full min-h-[38px] rounded-md flex justify-center items-center overflow-hidden "
+                style={{ backgroundColor: background_color || "" }}
+              >
+                <div
+                  className="py-0 tablet:py-4 px-0 tablet:px-3 w-full font-bold font-body text-sm leading-[1] flex-col "
+                  style={{ height: height || "" }}
+                >
+                  <div
+                    className="h-full w-full"
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                  ${iframe}
+                  `,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <PrismicRichText
+            field={after_cta_text}
+            components={{
+              paragraph: ({ children }) => (
+                <p
+                  style={{ color: text_color || "" }}
+                  className="w-full text-lg opacity-75 largeTablet:text-xl"
+                >
+                  {children}
+                </p>
+              ),
+            }}
+          />
+        </div>
+      </div>
+    </>
+  );
+}
