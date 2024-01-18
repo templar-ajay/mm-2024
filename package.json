@@ -11,6 +11,7 @@
     "sm": "start-slicemachine"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@nextui-org/react": "^2.2.9",
     "@phntms/next-gtm": "^0.3.0",
     "@prismicio/client": "^7.3.1",
@@ -18,6 +19,7 @@
     "@prismicio/react": "^2.7.3",
     "clsx": "^2.0.0",
     "dotenv": "^16.3.1",
+    "hamburger-react": "^2.5.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",

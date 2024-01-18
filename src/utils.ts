@@ -13,6 +13,18 @@ export const getSettings = async () => {
   return settings;
 };
 
+export const getHeader = async () => {
+  const client = createClient();
+  const header = await client.getSingle("header");
+  return header;
+};
+
+export const getFooter = async () => {
+  const client = createClient();
+  const footer = await client.getSingle("footer");
+  return footer;
+};
+
 export function adjustCurrentDate(dayToAdjust: number) {
   const currentDate = new Date(); // Get the current date
   const sevenDaysAgo = new Date(currentDate);

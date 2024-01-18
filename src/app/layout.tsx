@@ -12,6 +12,8 @@ import { PrismicPreview } from "@prismicio/next";
 import { TrackingHeadScript } from "@phntms/next-gtm";
 import { getSettings } from "@/utils";
 import { Providers } from "@/app/providers";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const body = Inter({
   subsets: ["latin"],

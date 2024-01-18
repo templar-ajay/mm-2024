@@ -26,6 +26,8 @@ const config: Config = {
         mm_primary: "#a428bc",
         mm_secondary: "#ffc400",
         text_color: "#FFF9ED",
+        darkBG: "#11181c",
+        footerBG: "rgba(248,114,22,.07)",
       },
     },
   },

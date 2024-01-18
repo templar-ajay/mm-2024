@@ -5,5 +5,6 @@ import dynamic from "next/dynamic";
 export const components = {
   cta: dynamic(() => import("./Cta")),
   feature: dynamic(() => import("./Feature")),
+  footer_block: dynamic(() => import("./FooterBlock")),
   hero: dynamic(() => import("./Hero")),
 };

@@ -5,6 +5,8 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { domain_name, getSettings } from "@/utils";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default async function Page() {
   const client = createClient();
@@ -16,11 +18,15 @@ export default async function Page() {
   // console.log("alt_lang", alternate_languages);
 
   return (
-    <SliceZone
-      slices={page.data.slices}
-      components={components}
-      context={{ lang: lang }}
-    />
+    <>
+      <Header lang={lang} />
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={{ lang: lang }}
+      />
+      <Footer lang={lang} />
+    </>
   );
 }
 
