@@ -20,7 +20,7 @@ const FooterBlock = ({ slice }: FooterBlockProps): JSX.Element => {
         {slice.items.map(({ link, label }, index) => (
           <div key={index} className="cursor-pointer">
             <PrismicNextLink field={link}>
-              <div className="font-normal text-textPrimary text-sm tracking-[-0.02em] opacity-[0.7] pb-3">
+              <div className="font-normal text-textPrimary text-sm hover:text-lightYellow  transition-all ease-in-out duration-400 tracking-[-0.02em] opacity-[0.7] pb-3">
                 <p>
                   <>{label}</>
                 </p>
