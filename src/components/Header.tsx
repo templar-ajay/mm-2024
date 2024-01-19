@@ -3,11 +3,11 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Navigation from "./ClientComponents/Navigation";
 const Header = async ({ lang }: any) => {
   const { logo, cta_icon, cta_text, cta_link, navigation_items } = (
-    await getHeader()
+    await getHeader({ lang: lang })
   ).data;
   return (
     <div className="relative font-body">
-      <div className="w-full max-w-[1256px] mx-auto px-6 flex justify-center flex-row items-center">
+      <div className="w-full max-w-[1256px] mx-auto px-3 mobile:px-6 flex justify-center flex-row items-center">
         <header className="flex flex-grow py-5 mobile_480:py-9 font-inter justify-between items-center">
           <div
             className="items-center w-full justify-between flex mr-1 mb-0 "

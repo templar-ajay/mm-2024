@@ -1,10 +1,16 @@
-import { getFooter } from "@/utils";
+import { getFooter, getLanguageCode } from "@/utils";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
+import LanguageSwitcher from "./ClientComponents/LanguageSwitcher";
 
-const Footer = async ({ lang }: any) => {
-  const footer = await getFooter();
+type FooterProps = {
+  lang: string;
+  alternate_languages: any;
+};
+
+const Footer = async ({ lang, alternate_languages }: FooterProps) => {
+  const footer = await getFooter({ lang: lang });
   const { disclaimer, logo, slices } = footer.data;
   return (
     <div>
@@ -13,42 +19,27 @@ const Footer = async ({ lang }: any) => {
           className="w-full max-w-[1256px] mx-auto px-6 flex justify-center flex-col items-center"
           style={{ paddingBottom: 0, paddingTop: 0 }}
         >
-          <div className="flex justify-between w-full pt-10 pb-16 largeTablet:pt-12 ">
+          <div className="flex flex-row items-center justify-between w-full pt-10 pb-16 largeTablet:pt-12 ">
             <div className="w-[140px]">
               <PrismicNextImage field={logo} />
             </div>
-            <div className="w-[140px] tablet:w-auto flex justify-center items-center">
-              <div className="relative block text-left">
-                <div>
-                  <button
-                    className="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                    type="button"
-                    aria-haspopup="menu"
-                    aria-expanded="false"
-                    data-headlessui-state=""
-                  >
-                    Language
-                    <svg
-                      stroke="currentColor"
-                      fill="currentColor"
-                      strokeWidth={0}
-                      viewBox="0 0 24 24"
-                      className="-mr-1 h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z" />
-                      <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                    </svg>
-                  </button>
-                </div>
+            <div className="w-[140px] tablet:w-auto flex justify-start items-center">
+              <div className="relative block text-left scale-50 mobile:scale-80 z-50">
+                <LanguageSwitcher
+                  placeholder={
+                    lang == "en-us" ? "Cambiar idioma" : "Change Language"
+                  }
+                  preSelected={lang == "en-us" ? "US" : "ES"}
+                  countries={[
+                    getLanguageCode(lang),
+                    getLanguageCode(alternate_languages?.[0]?.lang),
+                  ].filter((x) => x)}
+                  alternate_uid={alternate_languages?.[0]?.uid}
+                />
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-wrap items-center tablet:items-start flex-col tablet:flex-row tablet:text-left text-center">
-            <div />
+          <div className="w-full text-center mobile:text-left grid gap-4 grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-4 largeTablet:grid-cols-5">
             <SliceZone
               slices={slices}
               components={components}

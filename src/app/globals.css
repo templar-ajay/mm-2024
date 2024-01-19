@@ -16,8 +16,6 @@ strong {
   }
 }
 
-
-
 li::before {
   content: "•";
   width: 1rem;

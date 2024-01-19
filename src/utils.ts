@@ -2,10 +2,10 @@ import "dotenv/config";
 import { createClient } from "@/prismicio";
 
 export const domain_name: string =
-  process.env.DOMAIN || "https://medicalmarketing.digital";
+  process.env.DOMAIN_URL || "https://medicalmarketing.digital";
 
-if (!process.env.DOMAIN)
-  throw new Error("please provide the environment variable `DOMAIN`");
+if (!process.env.DOMAIN_URL)
+  throw new Error("please provide the environment variable `DOMAIN_URL`");
 
 export const getSettings = async () => {
   const client = createClient();
@@ -13,15 +13,15 @@ export const getSettings = async () => {
   return settings;
 };
 
-export const getHeader = async () => {
+export const getHeader = async ({ lang }: any) => {
   const client = createClient();
-  const header = await client.getSingle("header");
+  const header = await client.getSingle("header", { lang: lang });
   return header;
 };
 
-export const getFooter = async () => {
+export const getFooter = async ({ lang }: any) => {
   const client = createClient();
-  const footer = await client.getSingle("footer");
+  const footer = await client.getSingle("footer", { lang: lang });
   return footer;
 };
 
@@ -40,4 +40,8 @@ export function getReadTime(text: string) {
   const time = Math.ceil(words / wpm);
 
   return time;
+}
+
+export function getLanguageCode(text: string) {
+  return text.split("-")[1].toUpperCase();
 }

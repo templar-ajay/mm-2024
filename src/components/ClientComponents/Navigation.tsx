@@ -10,7 +10,9 @@ const Navigation = ({ navigation_items }: any) => {
 
   return (
     <>
-      <Hamburger toggled={isOpen} toggle={setOpen} />
+      <div className="scale-75 mobile:scale-100 -m-2">
+        <Hamburger toggled={isOpen} toggle={setOpen} />
+      </div>
       <div className="absolute z-50 left-[0] w-full px-2 mobile:px-3 largeTablet:px-6">
         <Transition
           as="div"
