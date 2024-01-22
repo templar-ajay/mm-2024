@@ -1,0 +1,57 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"intro": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit ex dolor elit sunt. Nisi in cillum reprehenderit reprehenderit aliqua et nostrud commodo excepteur nostrud duis."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Minim proident mollit do ad commodo Lorem irure incididunt proident enim exercitation. Eiusmod fugiat esse et. Duis minim sint nulla ad consectetur nostrud voluptate dolore voluptate magna velit anim sunt magna."
+						}
+					}
+				]
+			},
+			"image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+					"width": 8640,
+					"height": 8640
+				},
+				"url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+				"width": 8640,
+				"height": 8640,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			},
+			"iframe": {
+				"__TYPE__": "FieldContent",
+				"value": "invented",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

@@ -174,6 +174,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | LeadMagnetSlice
   | FaqSlice
   | VideoTestimonialSlice
   | CtaSlice
@@ -931,6 +932,81 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *LeadMagnet → Primary*
+ */
+export interface LeadMagnetSliceDefaultPrimary {
+  /**
+   * Intro field in *LeadMagnet → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: lead_magnet.primary.intro
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro: prismic.RichTextField;
+
+  /**
+   * Title field in *LeadMagnet → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: lead_magnet.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image field in *LeadMagnet → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: lead_magnet.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Iframe field in *LeadMagnet → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: lead_magnet.primary.iframe
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  iframe: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for LeadMagnet Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LeadMagnetSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LeadMagnetSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LeadMagnet*
+ */
+type LeadMagnetSliceVariation = LeadMagnetSliceDefault;
+
+/**
+ * LeadMagnet Shared Slice
+ *
+ * - **API ID**: `lead_magnet`
+ * - **Description**: LeadMagnet
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LeadMagnetSlice = prismic.SharedSlice<
+  "lead_magnet",
+  LeadMagnetSliceVariation
+>;
+
+/**
  * Primary content in *VideoTestimonial → Primary*
  */
 export interface VideoTestimonialSliceDefaultPrimary {
@@ -1024,6 +1100,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      LeadMagnetSlice,
+      LeadMagnetSliceDefaultPrimary,
+      LeadMagnetSliceVariation,
+      LeadMagnetSliceDefault,
       VideoTestimonialSlice,
       VideoTestimonialSliceDefaultPrimary,
       VideoTestimonialSliceVariation,
