@@ -110,7 +110,7 @@ const VideoTestimonial = async ({
       <div className="my-10 mobile:my-24 w-full">
         <div className="bg-darkBG max-w-1400">
           <div className="mx-auto max-w-1400">
-            <div className="max-w-1400 h-[340px] mobile:h-[636px]">
+            <div className="max-w-1400 h-[360px] mobile:h-[636px]">
               <div className="container__scroll pb-6 overflow-x-scroll flex gap-x-5  mobile:gap-x-8 tablet:gap-x-20 scroll-snap-type-x-mandatory scrollbar">
                 {video_testimonials.map(({ ...data }, index) => (
                   <div key={index} className="">

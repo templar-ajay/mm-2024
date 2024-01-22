@@ -1,0 +1,47 @@
+{
+  "id": "faq",
+  "type": "SharedSlice",
+  "name": "Faq",
+  "description": "Faq",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,strong,em"
+          }
+        }
+      },
+      "items": {
+        "question": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Question",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3,strong,em"
+          }
+        },
+        "answer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Answer",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        }
+      }
+    }
+  ]
+}

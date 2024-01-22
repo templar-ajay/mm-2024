@@ -174,6 +174,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FaqSlice
   | VideoTestimonialSlice
   | CtaSlice
   | FeatureSlice
@@ -625,6 +626,73 @@ type CtaSliceVariation = CtaSliceDefault | CtaSliceIFrame;
 export type CtaSlice = prismic.SharedSlice<"cta", CtaSliceVariation>;
 
 /**
+ * Primary content in *Faq → Primary*
+ */
+export interface FaqSliceDefaultPrimary {
+  /**
+   * Title field in *Faq → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Faq → Items*
+ */
+export interface FaqSliceDefaultItem {
+  /**
+   * Question field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * Answer field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Faq Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqSliceDefaultPrimary>,
+  Simplify<FaqSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Faq*
+ */
+type FaqSliceVariation = FaqSliceDefault;
+
+/**
+ * Faq Shared Slice
+ *
+ * - **API ID**: `faq`
+ * - **Description**: Faq
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSlice = prismic.SharedSlice<"faq", FaqSliceVariation>;
+
+/**
  * Primary content in *Feature → Primary*
  */
 export interface FeatureSliceDefaultPrimary {
@@ -938,6 +1006,11 @@ declare module "@prismicio/client" {
       CtaSliceVariation,
       CtaSliceDefault,
       CtaSliceIFrame,
+      FaqSlice,
+      FaqSliceDefaultPrimary,
+      FaqSliceDefaultItem,
+      FaqSliceVariation,
+      FaqSliceDefault,
       FeatureSlice,
       FeatureSliceDefaultPrimary,
       FeatureSliceVariation,
