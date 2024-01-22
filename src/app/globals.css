@@ -31,3 +31,30 @@ li::before {
   margin-left: -1.5rem;
   margin-right: 0.5rem;
 }
+
+strong {
+  --tw-gradient-text: #ffe580, #ffc400;
+  background-image: linear-gradient(to right, var(--tw-gradient-text));
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.container__scroll::-webkit-scrollbar {
+  width: 14px;
+  height: 6px;
+}
+.container__scroll::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 10px;
+}
+
+.container__scroll::-webkit-scrollbar-thumb {
+  background: #f8f9fa;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.container__scroll::-webkit-scrollbar-thumb:hover {
+  background: #ffe588;
+}

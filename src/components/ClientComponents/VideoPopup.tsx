@@ -33,11 +33,21 @@ export default function VideoPopup({
       >
         {image}
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="2xl">
-        <ModalContent className="mb-[25vh] sm:mb-0 h-[380px] bg-transparent">
-          {(onClose: any) => (
+      <Modal
+        id={className + "_d"}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size="2xl"
+      >
+        <ModalContent className="mb-[25vh] sm:mb-0 h-[380px] bg-transparent backdrop-blur-sm">
+          {(onClose) => (
             <>
-              <ModalBody style={{ paddingRight: 0, paddingLeft: 0 }}>
+              <ModalBody
+                style={{
+                  paddingRight: 0,
+                  paddingLeft: 0,
+                }}
+              >
                 {iframe}
               </ModalBody>
             </>

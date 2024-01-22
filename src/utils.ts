@@ -45,3 +45,21 @@ export function getReadTime(text: string) {
 export function getLanguageCode(text: string) {
   return text.split("-")[1].toUpperCase();
 }
+
+export function createVideoFrame(video_popup: any) {
+  // const iframe = `<iframe src="https://player.vimeo.com/video/841623575?app_id=122963&amp;autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9; loading=" lazy"="" width="" height="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="DOC CLINIC - Testimonio Doctor Colombo MM"></iframe>`;
+  let htmlString = `<iframe src="${video_popup?.url}" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9;" width="" height="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Dr. David Molina - Medical Marketing"></iframe>`;
+
+  // Replace the width attribute
+  htmlString = htmlString.replace(/width="(\d+)"/g, 'width=""');
+
+  htmlString = htmlString.replace(/height="(\d+)"/g, 'height=""');
+
+  // Add &autoplay=1 to the src attribute
+  // htmlString = htmlString.replace(
+  //   /src="(https:\/\/player\.vimeo\.com\/video\/\d+\?app_id=\d+)"/g,
+  //   `src="${video_popup.url}&autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9; loading="lazy"`
+  // );
+
+  return htmlString;
+}

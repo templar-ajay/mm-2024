@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "video_testimonial": {
+              "type": "SharedSlice"
+            },
             "cta": {
               "type": "SharedSlice"
             },

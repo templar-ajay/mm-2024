@@ -3,7 +3,7 @@ import LeftLineContainer from "@/components/LeftLineContainer";
 import Paragraph from "@/components/Paragraph";
 import SectionWrapper from "@/components/SectionWrapper";
 import Typography from "@/components/Typography";
-import VideoPopup from "@/components/VideoPopup";
+import VideoPopup from "@/components/ClientComponents/VideoPopup";
 import { getSettings } from "@/utils";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";

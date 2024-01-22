@@ -18,7 +18,7 @@ export default async function Heading({
 }: HeadingProps) {
   const settings = await getSettings();
 
-  const { primary_color } = settings.data;
+  const { text_color } = settings.data;
   return (
     <Comp
       className={clsx(
@@ -31,7 +31,7 @@ export default async function Heading({
         size === "xxs" && "text-sm sm:text-md md:text-xl",
         className
       )}
-      style={{ color: color || primary_color || "#000000" }}
+      style={{ color: color || text_color || "#000000" }}
     >
       {children}
     </Comp>

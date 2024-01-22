@@ -7,4 +7,5 @@ export const components = {
   feature: dynamic(() => import("./Feature")),
   footer_block: dynamic(() => import("./FooterBlock")),
   hero: dynamic(() => import("./Hero")),
+  video_testimonial: dynamic(() => import("./VideoTestimonial")),
 };
