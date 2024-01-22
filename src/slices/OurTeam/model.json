@@ -1,0 +1,54 @@
+{
+  "id": "our_team",
+  "type": "SharedSlice",
+  "name": "OurTeam",
+  "description": "OurTeam",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,strong,em"
+          }
+        }
+      },
+      "items": {
+        "avatar": {
+          "type": "Image",
+          "config": {
+            "label": "Avatar",
+            "constraint": {
+              "width": 144,
+              "height": 144
+            },
+            "thumbnails": []
+          }
+        },
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "Name",
+            "placeholder": ""
+          }
+        },
+        "designation": {
+          "type": "Text",
+          "config": {
+            "label": "Designation",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

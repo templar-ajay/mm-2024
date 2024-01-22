@@ -174,6 +174,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | OurTeamSlice
   | LeadMagnetSlice
   | FaqSlice
   | VideoTestimonialSlice
@@ -1007,6 +1008,86 @@ export type LeadMagnetSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *OurTeam → Primary*
+ */
+export interface OurTeamSliceDefaultPrimary {
+  /**
+   * Title field in *OurTeam → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_team.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *OurTeam → Items*
+ */
+export interface OurTeamSliceDefaultItem {
+  /**
+   * Avatar field in *OurTeam → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_team.items[].avatar
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  avatar: prismic.ImageField<never>;
+
+  /**
+   * Name field in *OurTeam → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_team.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Designation field in *OurTeam → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_team.items[].designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for OurTeam Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurTeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OurTeamSliceDefaultPrimary>,
+  Simplify<OurTeamSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *OurTeam*
+ */
+type OurTeamSliceVariation = OurTeamSliceDefault;
+
+/**
+ * OurTeam Shared Slice
+ *
+ * - **API ID**: `our_team`
+ * - **Description**: OurTeam
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurTeamSlice = prismic.SharedSlice<
+  "our_team",
+  OurTeamSliceVariation
+>;
+
+/**
  * Primary content in *VideoTestimonial → Primary*
  */
 export interface VideoTestimonialSliceDefaultPrimary {
@@ -1104,6 +1185,11 @@ declare module "@prismicio/client" {
       LeadMagnetSliceDefaultPrimary,
       LeadMagnetSliceVariation,
       LeadMagnetSliceDefault,
+      OurTeamSlice,
+      OurTeamSliceDefaultPrimary,
+      OurTeamSliceDefaultItem,
+      OurTeamSliceVariation,
+      OurTeamSliceDefault,
       VideoTestimonialSlice,
       VideoTestimonialSliceDefaultPrimary,
       VideoTestimonialSliceVariation,
