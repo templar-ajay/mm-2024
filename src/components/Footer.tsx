@@ -1,4 +1,4 @@
-import { getFooter, getLanguageCode } from "@/utils";
+import { getCountries, getFooter } from "@/utils";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
@@ -30,10 +30,7 @@ const Footer = async ({ lang, alternate_languages }: FooterProps) => {
                     lang == "en-us" ? "Cambiar idioma" : "Change Language"
                   }
                   preSelected={lang == "en-us" ? "US" : "ES"}
-                  countries={[
-                    getLanguageCode(lang),
-                    getLanguageCode(alternate_languages?.[0]?.lang),
-                  ].filter((x) => x)}
+                  countries={getCountries(lang, alternate_languages?.[0]?.lang)}
                   alternate_uid={alternate_languages?.[0]?.uid}
                 />
               </div>

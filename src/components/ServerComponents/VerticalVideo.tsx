@@ -3,8 +3,9 @@ import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
 import ThemedButton from "./ThemedButton";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
-import { createVideoFrame, getSettings } from "@/utils";
+import { getSettings } from "@/utils";
 import VideoPopup from "../ClientComponents/VideoPopup";
+import ThemedOutline from "../ThemedOutline";
 
 type getComponentsProps = {
   h3_color?: any;
@@ -61,53 +62,51 @@ const VerticalVideo = async (data: any) => {
   });
   return (
     <>
-      <div className="[&_img]:hover:scale-110 cursor-pointer h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] w-fit bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432]">
-        <div className="h-full w-full min-h-[38px] rounded-md flex justify-center items-center overflow-hidden bg-darkBG text-text_color">
-          <VideoPopup
-            image={
-              <div className="w-[200px] mobile:w-[366px] h-[300px] mobile:h-[564px] relative">
-                <div
-                  className="absolute "
-                  style={{
-                    background: `linear-gradient(
+      <ThemedOutline className="[&_img]:hover:scale-110 cursor-pointer">
+        <VideoPopup
+          image={
+            <div className="w-[200px] mobile:w-[366px] h-[300px] mobile:h-[564px] relative">
+              <div
+                className="absolute "
+                style={{
+                  background: `linear-gradient(
               0deg,
               rgba(0, 0, 0, 1) 0%,
               rgba(0, 0, 0, 0) 100%
             )`,
-                  }}
-                >
-                  <PrismicNextImage
-                    className="transition-all ease-in-out duration-400"
-                    field={thumbnail_image}
+                }}
+              >
+                <PrismicNextImage
+                  className="transition-all ease-in-out duration-400"
+                  field={thumbnail_image}
+                />
+              </div>
+              <div className="absolute bottom-0">
+                <div className="text-center mobile:text-left px-1 mobile:px-8 py-4 mobile:py-10 grid grid-flow-row gap-y-2 mobile:gap-y-4">
+                  <PrismicRichText field={name} components={components} />
+                  <PrismicRichText
+                    field={short_review}
+                    components={components}
                   />
-                </div>
-                <div className="absolute bottom-0">
-                  <div className="text-center mobile:text-left px-1 mobile:px-8 py-4 mobile:py-10 grid grid-flow-row gap-y-2 mobile:gap-y-4">
-                    <PrismicRichText field={name} components={components} />
-                    <PrismicRichText
-                      field={short_review}
-                      components={components}
-                    />
-                    <ThemedButton className="mx-auto mobile:mx-0 text-center mobile:text-left">
-                      {/* <PrismicNextLink field={video_link}> */}
-                      {cta_text}
-                      {/* </PrismicNextLink> */}
-                    </ThemedButton>
-                  </div>
+                  <ThemedButton className="mx-auto mobile:mx-0 text-center mobile:text-left">
+                    {/* <PrismicNextLink field={video_link}> */}
+                    {cta_text}
+                    {/* </PrismicNextLink> */}
+                  </ThemedButton>
                 </div>
               </div>
-            }
-            iframe={
-              <div
-                className="h-full w-full"
-                dangerouslySetInnerHTML={{
-                  __html: video_iframe,
-                }}
-              ></div>
-            }
-          />
-        </div>
-      </div>
+            </div>
+          }
+          iframe={
+            <div
+              className="h-full w-full"
+              dangerouslySetInnerHTML={{
+                __html: video_iframe,
+              }}
+            ></div>
+          }
+        />
+      </ThemedOutline>
     </>
   );
 };

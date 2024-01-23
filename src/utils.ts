@@ -34,7 +34,8 @@ export function adjustCurrentDate(dayToAdjust: number) {
   return sevenDaysAgo;
 }
 
-export function getReadTime(text: string) {
+export function getReadTime(content: any) {
+  const text = content?.map((o: any) => o?.text).join(" ") || "";
   const wpm = 225;
   const words = text.trim().split(/\s+/).length;
   const time = Math.ceil(words / wpm);

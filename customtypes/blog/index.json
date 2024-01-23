@@ -1,6 +1,6 @@
 {
-  "id": "page",
-  "label": "Page",
+  "id": "blog",
+  "label": "Blog",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -12,33 +12,44 @@
         },
         "type": "UID"
       },
+      "date_published": {
+        "type": "Date",
+        "config": {
+          "label": "Date Published",
+          "placeholder": ""
+        }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1,strong,em"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Content",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "our_team": {
-              "type": "SharedSlice"
-            },
-            "lead_magnet": {
-              "type": "SharedSlice"
-            },
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "video_testimonial": {
-              "type": "SharedSlice"
-            },
-            "cta": {
-              "type": "SharedSlice"
-            },
-            "feature": {
-              "type": "SharedSlice"
-            },
-            "hero": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

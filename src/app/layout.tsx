@@ -95,7 +95,8 @@ export default async function RootLayout({
         className={clsx(
           body.variable,
           display.variable,
-          `selection:bg-mm_primary selection:text-white`
+          `selection:bg-mm_primary selection:text-white`,
+          "min-h-[100vh]"
         )}
         style={{ backgroundColor: background_color || "" }}
       >

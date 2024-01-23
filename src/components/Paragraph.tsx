@@ -12,10 +12,10 @@ export default async function Paragraph({
   color,
 }: ParagraphProps) {
   const settings = await getSettings();
-  const { secondary_color } = settings.data;
+  const { text_color } = settings.data;
   return (
     <p
-      style={{ color: color || secondary_color || "#303030" }}
+      style={{ color: color || text_color || "#FFF9ED" }}
       className={clsx("py-[15px] font-body", className)}
     >
       {children}
