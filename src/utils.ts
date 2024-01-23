@@ -42,8 +42,15 @@ export function getReadTime(text: string) {
   return time;
 }
 
-export function getLanguageCode(text: string) {
-  return text.split("-")[1].toUpperCase();
+function getLanguageCode(x: string) {
+  return x?.split("-")[1].toUpperCase();
+}
+
+export function getCountries(...arr: string[]) {
+  return arr
+    .filter((x) => x)
+    .map((x) => getLanguageCode(x))
+    .filter((x) => x);
 }
 
 export function createVideoFrame(video_popup: any) {
