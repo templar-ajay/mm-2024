@@ -23,7 +23,7 @@ export default async function Heading({
     <Comp
       className={clsx(
         "font-display",
-        size === "xl" && "text-4xl sm:text-5xl md:text-7xl",
+        size === "xl" && "text-4xl sm:text-5xl md:text-6xl",
         size === "lg" && "text-3xl sm:text-4xl md:text-5xl",
         size === "md" && "text-2xl sm:text-3xl md:text-4xl",
         size === "sm" && "text-xl sm:text-2xl md:text-3xl",

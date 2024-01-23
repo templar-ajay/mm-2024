@@ -71,3 +71,30 @@ export function createVideoFrame(video_popup: any) {
 
   return htmlString;
 }
+
+export function generateAlternatesLanguagesOptionsForMetadata({
+  middleRoute,
+  lang,
+  uid,
+  alternate_languages,
+}: any) {
+  const obj: any = {
+    "x-default": uid ? "/" + (middleRoute ? middleRoute : "") + uid + "/" : "/",
+    [lang.split("-")?.[0] + "-" + lang.split("-")?.[1].toUpperCase()]: uid
+      ? "/" + (middleRoute ? middleRoute : "") + uid + "/"
+      : "/",
+  };
+
+  alternate_languages?.forEach(({ lang, uid }: any) => {
+    obj[lang.split("-")?.[0] + "-" + lang.split("-")?.[1].toUpperCase()] = uid
+      ? "/" +
+        lang.split("-")?.[0] +
+        "/" +
+        (middleRoute ? middleRoute : "") +
+        uid +
+        "/"
+      : "/";
+  });
+
+  return obj;
+}

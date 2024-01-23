@@ -7,6 +7,11 @@ import { components } from "@/slices";
 import Blog from "@/components/Blog/Blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {
+  domain_name,
+  generateAlternatesLanguagesOptionsForMetadata,
+  getSettings,
+} from "@/utils";
 
 type Params = { uid: string };
 
@@ -15,7 +20,6 @@ export default async function Page({ params }: { params: Params }) {
   const page = await client
     .getByUID("blog", params.uid, { lang: "en-us" })
     .catch(() => notFound());
-  const { date_published, title, image, content } = page.data;
   const { lang, alternate_languages, tags } = page;
   return (
     <>
@@ -41,9 +45,39 @@ export async function generateMetadata({
     .getByUID("blog", params.uid, { lang: "en-us" })
     .catch(() => notFound());
 
+  const settings = await getSettings();
+  const {
+    meta_title: default_meta_title,
+    meta_description: default_meta_description,
+    og_image: default_og_image,
+  } = settings.data;
+
+  const { meta_title, meta_description, meta_image } = page.data;
+  const { lang, alternate_languages } = page;
+
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: meta_title || default_meta_title || "Fallback Title",
+    description:
+      meta_description || default_meta_description || "Fallback description",
+    openGraph: {
+      images: [
+        meta_image?.url || default_og_image?.url || "./fallback_image_path",
+      ],
+      title: meta_title || default_meta_title || "Fallback Meta Title",
+      description:
+        meta_description || default_meta_description || "Fallback Meta Title",
+      url: domain_name + "/blog/" + params.uid,
+    },
+    metadataBase: new URL(domain_name), // should always be the same
+    alternates: {
+      canonical: "/blog/" + params.uid + "/",
+      languages: generateAlternatesLanguagesOptionsForMetadata({
+        middleRoute: "blog/",
+        lang: lang,
+        uid: params.uid,
+        alternate_languages: alternate_languages,
+      }),
+    },
   };
 }
 

@@ -4,7 +4,11 @@ import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import { domain_name, getSettings } from "@/utils";
+import {
+  domain_name,
+  generateAlternatesLanguagesOptionsForMetadata,
+  getSettings,
+} from "@/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -48,6 +52,9 @@ export async function generateMetadata({
     og_image: default_og_image,
   } = settings.data;
 
+  const { lang, alternate_languages } = page;
+  // alternate_languages.map((x) => x);
+  console.log("alternate_language", alternate_languages);
   const { meta_title, meta_description, meta_image } = page.data;
 
   return {
@@ -61,20 +68,21 @@ export async function generateMetadata({
       title: meta_title || default_meta_title || "Fallback Meta Title",
       description:
         meta_description || default_meta_description || "Fallback Meta Title",
-      url: domain_name,
+      url: domain_name + "/" + params.uid,
     },
-    metadataBase: new URL(domain_name),
+    metadataBase: new URL(domain_name), // should always be the same
     alternates: {
-      canonical: "/",
-      languages: {
-        "en-US": "/",
-        "es-ES": "/es",
-        "x-default": "/",
-      },
+      canonical: "/" + params.uid + "/",
+      languages: generateAlternatesLanguagesOptionsForMetadata({
+        lang: lang,
+        uid: params.uid,
+        alternate_languages: alternate_languages,
+      }),
     },
   };
 }
 
+// test pageSpeed by removing this. This function is already called in homepage route, and static params are already generated
 export async function generateStaticParams() {
   const client = createClient();
   const pages = await client.getAllByType("page", { lang: "en-us" });
