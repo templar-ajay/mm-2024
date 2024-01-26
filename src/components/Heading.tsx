@@ -1,4 +1,3 @@
-import { getSettings } from "@/utils";
 import clsx from "clsx";
 
 type HeadingProps = {
@@ -9,16 +8,13 @@ type HeadingProps = {
   color: string;
 };
 
-export default async function Heading({
+export default function Heading({
   as: Comp = "h1",
   size,
   children,
   className,
   color,
 }: HeadingProps) {
-  const settings = await getSettings();
-
-  const { text_color } = settings.data;
   return (
     <Comp
       className={clsx(
@@ -31,7 +27,7 @@ export default async function Heading({
         size === "xxs" && "text-sm sm:text-md md:text-xl",
         className
       )}
-      style={{ color: color || text_color || "#000000" }}
+      style={{ color: color || "#FFF9ED" }}
     >
       {children}
     </Comp>

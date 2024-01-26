@@ -106,21 +106,21 @@ type BlogPageData = {
   image?: ImageField;
   content?: RichTextField;
 };
-const Blog = async ({
+const Blog = ({
   data,
   tags,
+  text_color,
   context,
 }: {
   data: BlogPageData;
   tags?: Tags;
+  text_color: any;
   context?: { lang?: string };
 }) => {
   const { date_published, title, image, content } = data;
   const { lang } = context || { lang: undefined };
   const readTime = getReadTime(content);
 
-  const settings = await getSettings();
-  const { text_color } = settings.data;
   const components = getComponents({ text_color: text_color });
   return (
     <Bounded as="section" className="pt-32 pb-44">

@@ -1,9 +1,9 @@
+"use client";
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
 import Bounded from "../Bounded";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
-import { getReadTime, getSettings } from "@/utils";
-import { createClient } from "@/prismicio";
+import { getReadTime } from "@/clientUtils";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import ThemedButton from "../ServerComponents/ThemedButton";
 import Link from "next/link";
@@ -282,19 +282,19 @@ const getPostComponents: componentsType = ({
 };
 
 type BlogListingProps = {
+  featuredPost: any;
   data: any;
+  text_color: any;
   context: { lang: string };
 };
-const BlogListing = async ({
+const BlogListing = ({
+  featuredPost,
   data,
+  text_color,
   context,
-}: BlogListingProps): Promise<JSX.Element> => {
-  const { heading, content, featured_post, slices } = data;
+}: BlogListingProps): JSX.Element => {
+  const { heading, content, slices } = data;
   const { lang } = context;
-  const settings = await getSettings();
-
-  const client = createClient();
-  const featuredPost = await client.getByUID("blog", featured_post?.uid);
 
   const { tags } = featuredPost;
   const {
@@ -312,7 +312,6 @@ const BlogListing = async ({
       .splice(0, 24)
       .join(" ") + "...";
 
-  const { text_color } = settings.data;
   const components = getComponents({ text_color: text_color });
   const featuredPostComponents = getFeaturedPostComponents({
     text_color: text_color,
@@ -368,7 +367,7 @@ const BlogListing = async ({
             </div>
             <div className="pt-6 pb-2 largeTablet:pt-10">
               <div className="w-full flex flex-wrap justify-start">
-                {tags?.map((tag, index) => (
+                {tags?.map((tag: any, index: number) => (
                   <div
                     key={index}
                     className="text-text_color opacity-70 text-sm mr-4"

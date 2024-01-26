@@ -14,12 +14,23 @@ export default async function Page() {
   const page = await client
     .getSingle("blog_listing", { lang: "en-us" })
     .catch(() => notFound());
+  const settings: any = await getSettings();
+  const { text_color } = settings.data;
   const { lang, alternate_languages } = page;
+
+  const { featured_post } = page.data;
+  //@ts-ignore
+  const featuredPost = await client.getByUID("blog", featured_post?.uid);
 
   return (
     <>
       <Header lang={lang} />
-      <BlogListing data={page.data} context={{ lang: lang }} />
+      <BlogListing
+        data={page.data}
+        featuredPost={featuredPost}
+        context={{ lang: lang }}
+        text_color={text_color}
+      />
       <SliceZone
         slices={page.data.slices}
         components={components}
@@ -36,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
     .getSingle("blog_listing", { lang: "en-us" })
     .catch(() => notFound());
 
-  const settings = await getSettings();
+  const settings: any = await getSettings();
   const {
     meta_title: default_meta_title,
     meta_description: default_meta_description,

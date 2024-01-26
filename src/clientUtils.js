@@ -16,3 +16,12 @@ export function getLinkOfAlternatePage(pathname, alternate_uid) {
   alternatePathName.replaceAll("//", "/");
   return alternatePathName;
 }
+
+export function getReadTime(content) {
+  const text = content?.map((o) => o?.text).join(" ") || "";
+  const wpm = 225;
+  const words = text.trim().split(/\s+/).length;
+  const time = Math.ceil(words / wpm);
+
+  return time;
+}
