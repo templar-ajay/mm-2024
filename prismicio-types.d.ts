@@ -149,6 +149,17 @@ interface BlogListingDocumentData {
   featured_post: prismic.ContentRelationshipField<"blog">;
 
   /**
+   * Other Blogs Title field in *Blog Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.other_blogs_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  other_blogs_title: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Blog Listing*
    *
    * - **Field Type**: Slice Zone

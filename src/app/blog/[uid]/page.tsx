@@ -21,10 +21,17 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("blog", params.uid, { lang: "en-us" })
     .catch(() => notFound());
   const { lang, alternate_languages, tags } = page;
+  const settings = await client.getSingle("settings");
+  const { text_color } = settings.data;
   return (
     <>
       <Header lang={lang} />
-      <Blog data={page.data} tags={tags} context={{ lang: lang }} />
+      <Blog
+        data={page.data}
+        tags={tags}
+        context={{ lang: lang }}
+        text_color={text_color}
+      />
       <SliceZone
         slices={page.data.slices}
         components={components}

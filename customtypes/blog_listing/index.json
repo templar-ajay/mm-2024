@@ -32,6 +32,13 @@
           "customtypes": ["blog"]
         }
       },
+      "other_blogs_title": {
+        "type": "Text",
+        "config": {
+          "label": "Other Blogs Title",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
