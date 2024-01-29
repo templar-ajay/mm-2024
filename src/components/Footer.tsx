@@ -3,6 +3,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import LanguageSwitcher from "./ClientComponents/LanguageSwitcher";
+import Link from "next/link";
 
 type FooterProps = {
   lang: string;
@@ -47,6 +48,15 @@ const Footer = async ({ lang, alternate_languages }: FooterProps) => {
             <div className="flex-grow">
               <div className="font-normal text-white text-sm tracking-[-0.02em] opacity-[0.35]">
                 <PrismicRichText field={disclaimer} />
+                <br />
+                <Link
+                  className="underline"
+                  href={"https://webfactory.digital/"}
+                >
+                  {lang == "es-es"
+                    ? "Desarrollado por WebFactory.Digital "
+                    : "Developed by WebFactory.Digital"}
+                </Link>
               </div>
             </div>
             <div className="flex mb-5 largeTablet:mb-0 ">
