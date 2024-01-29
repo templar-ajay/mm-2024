@@ -111,7 +111,10 @@ const TrendingPosts = async ({
                   </span>
                 </div>
                 <div className="pt-1">
-                  <Link href={"/blog/" + uid}>
+                  <Link
+                    prefetch={true}
+                    href={(lang == "en-us" ? "blog/" : "/es/blog/") + uid}
+                  >
                     <div className="h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer w-fit bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432] [&_div]:hover:bg-[#610C9F] transition-all ease-in-out duration-400">
                       <div className="h-full w-full min-h-[38px] rounded-md flex justify-center items-center px-3 py-[6px] bg-darkBG ">
                         <span className="font-bold text-sm leading-[1] text-[#FEF8F4] flex ">

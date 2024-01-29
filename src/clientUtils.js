@@ -4,14 +4,15 @@ export function getLinkOfAlternatePage(pathname, alternate_uid) {
   let alternateUID = alternate_uid == "homepage" ? "" : alternate_uid;
   let alternatePathName = "";
   if (pathname.includes("/es")) {
-    alternatePathName += "/";
+    alternatePathName += "";
   } else {
     alternatePathName += "/es";
   }
   if (pathname.includes("/blog")) {
     alternatePathName += "/blog";
   }
-  alternatePathName += "/" + alternateUID;
+  alternatePathName += "/" + (alternateUID ? alternateUID : "");
+  alternatePathName.replaceAll("//", "/");
   alternatePathName.replaceAll("//", "/");
   alternatePathName.replaceAll("//", "/");
   return alternatePathName;

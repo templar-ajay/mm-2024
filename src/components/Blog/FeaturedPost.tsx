@@ -202,7 +202,9 @@ const FeaturedPost = ({
           <div className="pt-1">
             <Link
               prefetch={true}
-              href={(lang == "en-us" ? "blog/" : "/es/blog") + featuredPost.uid}
+              href={
+                (lang == "en-us" ? "blog/" : "/es/blog/") + featuredPost.uid
+              }
             >
               <ThemedButton>
                 <span className="font-bold text-sm leading-[1] text-[#FEF8F4] flex ">

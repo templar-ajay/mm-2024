@@ -81,6 +81,7 @@ export type VideoTestimonialProps =
  */
 const VideoTestimonial = async ({
   slice,
+  context,
 }: VideoTestimonialProps): Promise<JSX.Element> => {
   const { select_video_testimonials } = slice.primary;
 
@@ -88,7 +89,9 @@ const VideoTestimonial = async ({
   const allTestimonials = await client.getByUID(
     "video_testimonials",
     //@ts-ignore
-    select_video_testimonials?.uid
+    select_video_testimonials?.uid,
+    //@ts-ignore
+    { lang: context?.lang }
   );
 
   const components = getComponents({});
