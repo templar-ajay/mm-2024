@@ -1,6 +1,7 @@
 import { getHeader } from "@/utils";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Navigation from "./ClientComponents/Navigation";
+import Link from "next/link";
 const Header = async ({ lang }: any) => {
   const { logo, cta_icon, cta_text, cta_link, navigation_items } = (
     await getHeader({ lang: lang })
@@ -14,9 +15,9 @@ const Header = async ({ lang }: any) => {
             style={{ alignItems: "center" }}
           >
             <div className="block mm-logo-div cursor-pointer">
-              <a href="/">
+              <Link href={lang == "es-es" ? "/es" : "/"}>
                 <PrismicNextImage field={logo} />
-              </a>
+              </Link>
             </div>
             <div
               className="h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer w-fit bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432]  [&_div]:hover:bg-[#610C9F]  transition-all ease-in-out duration-400"
