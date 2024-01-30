@@ -9,6 +9,7 @@ import { createClient } from "@/prismicio";
 import Heading from "@/components/Heading";
 import Paragraph from "@/components/Paragraph";
 import VerticalVideo from "@/components/ServerComponents/VerticalVideo";
+import { Reveal } from "@/components/ClientComponents/Reveal";
 
 type getComponentsProps = {
   heading_h1_color?: any;
@@ -116,8 +117,17 @@ const VideoTestimonial = async ({
             <div className="max-w-1400 h-[360px] mobile:h-[636px]">
               <div className="container__scroll pb-6 overflow-x-scroll flex gap-x-5  mobile:gap-x-8 tablet:gap-x-20 scroll-snap-type-x-mandatory scrollbar">
                 {video_testimonials.map(({ ...data }, index) => (
-                  <div key={index} className="">
-                    <VerticalVideo {...data} cta_text={cta_text} />
+                  <div key={index}>
+                    <div className="hidden mobile:block">
+                      <Reveal x={25} delay={index > 2 ? 0 : 0.3 * index}>
+                        <VerticalVideo {...data} cta_text={cta_text} />
+                      </Reveal>
+                    </div>
+                    <div className="block mobile:hidden">
+                      <Reveal x={25} delay={index > 1 ? 0 : 0.3 * index}>
+                        <VerticalVideo {...data} cta_text={cta_text} />
+                      </Reveal>
+                    </div>
                   </div>
                 ))}
               </div>

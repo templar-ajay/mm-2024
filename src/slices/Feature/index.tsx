@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ClientComponents/Reveal";
 import Heading from "@/components/Heading";
 import LeftLineContainer from "@/components/LeftLineContainer";
 import Paragraph from "@/components/Paragraph";
@@ -5,6 +6,7 @@ import SectionWrapper from "@/components/SectionWrapper";
 import { getSettings, adjustCurrentDate } from "@/utils";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
+
 import {
   JSXMapSerializer,
   PrismicRichText,
@@ -89,11 +91,13 @@ const Feature = async ({
         <LeftLineContainer
           icon={
             left_side_small_icon?.url && (
-              <PrismicNextImage
-                className="absolute -left-[28px] -top-[12px] z-10 max-w-[56px]"
-                loading="eager"
-                field={slice.primary.left_side_small_icon}
-              />
+              <Reveal type="scale">
+                <PrismicNextImage
+                  className="absolute -left-[28px] -top-[12px] z-50 max-w-[56px]"
+                  loading="eager"
+                  field={slice.primary.left_side_small_icon}
+                />
+              </Reveal>
             )
           }
         >
@@ -112,26 +116,32 @@ const Feature = async ({
                     color: text_color || "#fff",
                   }}
                 >
-                  {display_date &&
-                    (lang == "en-us" ? "Updated: " : "Actualizado: ") +
-                      new Date(
-                        adjustCurrentDate(-7).toDateString()
-                      ).toLocaleString(lang == "en-us" ? "en-US" : "es-ES", {
-                        // year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      }) +
-                      ", " +
-                      new Date(adjustCurrentDate(-7)).getFullYear()}
+                  <Reveal>
+                    {display_date &&
+                      (lang == "en-us" ? "Updated: " : "Actualizado: ") +
+                        new Date(
+                          adjustCurrentDate(-7).toDateString()
+                        ).toLocaleString(lang == "en-us" ? "en-US" : "es-ES", {
+                          // year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }) +
+                        ", " +
+                        new Date(adjustCurrentDate(-7)).getFullYear()}
+                  </Reveal>
                 </div>
                 <div className="relative largeTablet:max-w-[500px]">
-                  <PrismicRichText
-                    field={heading_h2}
-                    components={components}
-                  ></PrismicRichText>
+                  <Reveal x={-20}>
+                    <PrismicRichText
+                      field={heading_h2}
+                      components={components}
+                    ></PrismicRichText>
+                  </Reveal>
                 </div>
                 <div className="largeTablet:max-w-[500px] feature-body">
-                  <PrismicRichText field={content} components={components} />
+                  <Reveal x={20}>
+                    <PrismicRichText field={content} components={components} />
+                  </Reveal>
                 </div>
               </div>
             </div>

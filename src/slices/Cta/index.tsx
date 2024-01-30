@@ -1,4 +1,5 @@
 import Bounded from "@/components/Bounded";
+import { Reveal } from "@/components/ClientComponents/Reveal";
 import { getSettings } from "@/utils";
 import {
   ColorField,
@@ -81,10 +82,11 @@ function DefaultCTA({
     <>
       <div className="w-full flex px-1 largeTablet:px-6 mb-0">
         <div className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[200px] w-full to-gray-800">
-          <PrismicNextImage
-            field={top_small_icon}
-            className="absolute -right-[28px] -top-[28px]"
-          />
+          <div className="absolute -right-[28px] -top-[28px]">
+            <Reveal type="scale" delay="0.3">
+              <PrismicNextImage field={top_small_icon} />
+            </Reveal>
+          </div>
         </div>
         <div className="flex-1"></div>
       </div>
@@ -191,10 +193,11 @@ function IframeCTA({
     <>
       <div className="w-full flex px-1 largeTablet:px-6 mb-0">
         <div className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[200px] w-full to-gray-800">
-          <PrismicNextImage
-            field={top_small_icon}
-            className="absolute -right-[28px] -top-[28px]"
-          />
+          <div className="absolute -right-[28px] -top-[28px]">
+            <Reveal type="scale" delay="0.5">
+              <PrismicNextImage field={top_small_icon} />
+            </Reveal>
+          </div>
         </div>
         <div className="flex-1"></div>
       </div>

@@ -2,7 +2,6 @@ import Heading from "@/components/Heading";
 import LeftLineContainer from "@/components/LeftLineContainer";
 import Paragraph from "@/components/Paragraph";
 import SectionWrapper from "@/components/SectionWrapper";
-import Typography from "@/components/Typography";
 import VideoPopup from "@/components/ClientComponents/VideoPopup";
 import { getSettings } from "@/utils";
 import { Content } from "@prismicio/client";
@@ -12,6 +11,7 @@ import {
   PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
+import { Reveal } from "@/components/ClientComponents/Reveal";
 
 type getComponentsProps = {
   heading_h1_color?: any;
@@ -97,10 +97,11 @@ const Hero = async ({ slice }: HeroProps): Promise<JSX.Element> => {
       <SectionWrapper className="pt-[60px] largeTablet:pt-[115px]">
         <LeftLineContainer>
           <div className="relative">
-            <PrismicNextImage
-              className="absolute -top-[20px] -left-[32px] tablet:-left-[32px] largeTablet:-left-[52px] first-line-icon"
-              field={left_side_small_icon}
-            />
+            <div className="absolute -top-[20px] -left-[32px] tablet:-left-[32px] largeTablet:-left-[52px] first-line-icon">
+              <Reveal type="scale">
+                <PrismicNextImage field={left_side_small_icon} />
+              </Reveal>
+            </div>
           </div>
 
           <main>

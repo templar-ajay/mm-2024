@@ -2,6 +2,7 @@ import Bounded from "@/components/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Member from "./Member";
+import { Reveal } from "@/components/ClientComponents/Reveal";
 
 /**
  * Props for `OurTeam`.
@@ -25,12 +26,26 @@ const OurTeam = ({ slice }: OurTeamProps): JSX.Element => {
         </div>
         <div className="grid grid-flow-cols gap-y-20 grid-cols-1 mobile:grid-cols-2 largeTablet:grid-cols-3">
           {slice.items.map(({ avatar, designation, name }, index) => (
-            <Member
-              key={index}
-              avatar={avatar}
-              designation={designation}
-              name={name}
-            />
+            <div key={index}>
+              <div className="hidden tablet:block">
+                <Reveal width="100%" y={75} delay={0.5 * index}>
+                  <Member
+                    avatar={avatar}
+                    designation={designation}
+                    name={name}
+                  />
+                </Reveal>
+              </div>
+              <div className="block tablet:hidden">
+                <Reveal width="100%" y={75} delay={0.3}>
+                  <Member
+                    avatar={avatar}
+                    designation={designation}
+                    name={name}
+                  />
+                </Reveal>
+              </div>
+            </div>
           ))}
         </div>
       </div>
