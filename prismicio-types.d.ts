@@ -456,6 +456,21 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
+ * Item in *Settings → Page Background Strokes*
+ */
+export interface SettingsDocumentDataBackgroundStrokesItem {
+  /**
+   * Image field in *Settings → Page Background Strokes*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.background_strokes[].stroke_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  stroke_image: prismic.ImageField<never>;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -523,7 +538,20 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  favicon: prismic.ImageField<never> /**
+  favicon: prismic.ImageField<never>;
+
+  /**
+   * Page Background Strokes field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.background_strokes[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  background_strokes: prismic.GroupField<
+    Simplify<SettingsDocumentDataBackgroundStrokesItem>
+  > /**
    * Meta Title field in *Settings*
    *
    * - **Field Type**: Text
@@ -1375,6 +1403,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SettingsDocumentDataBackgroundStrokesItem,
       VideoTestimonialsDocument,
       VideoTestimonialsDocumentData,
       VideoTestimonialsDocumentDataVideoTestimonialsItem,

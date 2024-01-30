@@ -48,6 +48,25 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "background_strokes": {
+        "type": "Group",
+        "config": {
+          "label": "Page Background Strokes",
+          "fields": {
+            "stroke_image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {
+                  "width": null,
+                  "height": null
+                },
+                "thumbnails": []
+              }
+            }
+          }
+        }
       }
     },
     "Default Meta Info": {

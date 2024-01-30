@@ -14,6 +14,7 @@ import { getSettings } from "@/utils";
 import { Providers } from "@/app/providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Background from "@/components/ServerComponents/Background";
 
 const body = Inter({
   subsets: ["latin"],
@@ -87,6 +88,7 @@ export default async function RootLayout({
     primary_color,
     text_color,
     background_color,
+    background_strokes,
   } = settings.data;
 
   return (
@@ -102,7 +104,9 @@ export default async function RootLayout({
       >
         <Providers>
           <TrackingHeadScript id={GTM_ID || ""} isGTM={true} />
-          {children}
+          <Background backgroundImages={background_strokes}>
+            {children}
+          </Background>
         </Providers>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
