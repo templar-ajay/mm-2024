@@ -93,7 +93,7 @@ const Feature = async ({
             left_side_small_icon?.url && (
               <Reveal type="scale">
                 <PrismicNextImage
-                  className="absolute -left-[28px] -top-[12px] z-50 max-w-[56px]"
+                  className="absolute -left-[28px] -top-[12px] z-10 max-w-[56px]"
                   loading="eager"
                   field={slice.primary.left_side_small_icon}
                 />
