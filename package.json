@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "node configure-sm-config-json.js",
+    "prebuild": "node configure-sm-config-json.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
