@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import ReactFlagsSelect from "react-flags-select";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import Link from "next/link";
 import { getLinkOfAlternatePage } from "@/clientUtils";
@@ -21,6 +21,7 @@ const LanguageSwitcher = ({
   countries = ["US", "ES"],
   alternate_uid,
 }: LanguageSwitcherProps): JSX.Element => {
+  const queryParams = useSearchParams().toString();
   const [selected, setSelected] = useState(preSelected);
 
   const LinkRef = useRef(null);
@@ -48,7 +49,9 @@ const LanguageSwitcher = ({
       />
       <Link
         ref={LinkRef}
-        href={getLinkOfAlternatePage(pathname, alternate_uid)}
+        href={
+          getLinkOfAlternatePage(pathname, alternate_uid) + "?" + queryParams
+        }
       />
     </>
   );

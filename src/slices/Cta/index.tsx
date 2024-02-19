@@ -1,5 +1,6 @@
 import Bounded from "@/components/Bounded";
 import { Reveal } from "@/components/ClientComponents/Reveal";
+import { PersistQueryParamsPrismicNextLink } from "@/components/PersistQueryParams";
 import { getSettings } from "@/utils";
 import {
   ColorField,
@@ -93,7 +94,7 @@ function DefaultCTA({
       <div className="mb-[60px] w-full">
         <div className="w-full max-w-[1256px] mx-auto px-6 flex justify-center flex-col items-center">
           <div className="w-full items-center flex flex-col">
-            <PrismicNextLink field={cta_link}>
+            <PersistQueryParamsPrismicNextLink field={cta_link}>
               <div className="h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer w-fit bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432] [&_div]:hover:bg-[#610C9F] transition-all ease-in-out duration-400">
                 <div
                   className="h-full w-full min-h-[38px] rounded-md flex justify-center items-center overflow-hidden "
@@ -132,7 +133,7 @@ function DefaultCTA({
                   </div>
                 </div>
               </div>
-            </PrismicNextLink>
+            </PersistQueryParamsPrismicNextLink>
           </div>
           <div className="w-full largeTablet:w-2/3 pb-16 largeTablet:pb-20">
             <PrismicRichText

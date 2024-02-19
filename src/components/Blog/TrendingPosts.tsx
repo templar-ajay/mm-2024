@@ -3,7 +3,8 @@ import Heading from "../Heading";
 import Paragraph from "../Paragraph";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
-import Link from "next/link";
+// import Link from "next/link";
+import { PersistQueryParamsLink } from "../PersistQueryParams";
 
 type getComponentsProps = {
   text_color: any;
@@ -111,7 +112,7 @@ const TrendingPosts = async ({
                   </span>
                 </div>
                 <div className="pt-1">
-                  <Link
+                  <PersistQueryParamsLink
                     prefetch={true}
                     href={(lang == "en-us" ? "blog/" : "/es/blog/") + uid}
                   >
@@ -122,7 +123,7 @@ const TrendingPosts = async ({
                         </span>
                       </div>
                     </div>
-                  </Link>
+                  </PersistQueryParamsLink>
                 </div>
               </div>
             )

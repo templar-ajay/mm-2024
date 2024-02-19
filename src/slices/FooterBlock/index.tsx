@@ -1,5 +1,6 @@
+import { PersistQueryParamsPrismicNextLink } from "@/components/PersistQueryParams";
 import { Content } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
+// import { PrismicNextLink } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -19,13 +20,13 @@ const FooterBlock = ({ slice }: FooterBlockProps): JSX.Element => {
       <div className="w-full flex flex-col">
         {slice.items.map(({ link, label }, index) => (
           <div key={index} className="cursor-pointer">
-            <PrismicNextLink field={link}>
+            <PersistQueryParamsPrismicNextLink field={link}>
               <div className="font-normal text-textPrimary text-sm hover:text-lightYellow  transition-all ease-in-out duration-400 tracking-[-0.02em] opacity-[0.7] pb-3">
                 <p>
                   <>{label}</>
                 </p>
               </div>
-            </PrismicNextLink>
+            </PersistQueryParamsPrismicNextLink>
           </div>
         ))}
       </div>

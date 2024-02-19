@@ -1,4 +1,5 @@
-import { PrismicNextLink } from "@prismicio/next";
+// import { PrismicNextLink } from "@prismicio/next";
+import { PersistQueryParamsPrismicNextLink } from "@/components/PersistQueryParams";
 const NavigationMenu = ({ navigation_items }: any) => {
   return (
     <div
@@ -17,7 +18,7 @@ const NavigationMenu = ({ navigation_items }: any) => {
           {navigation_items.map(
             ({ label, small_label, link }: any, index: number) => {
               return (
-                <PrismicNextLink
+                <PersistQueryParamsPrismicNextLink
                   key={index}
                   field={link}
                   className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
@@ -28,7 +29,7 @@ const NavigationMenu = ({ navigation_items }: any) => {
                   <span className="text-sm tablet:text-md">
                     <p>{small_label}</p>
                   </span>
-                </PrismicNextLink>
+                </PersistQueryParamsPrismicNextLink>
               );
             }
           )}

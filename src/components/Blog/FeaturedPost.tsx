@@ -1,10 +1,11 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
-import Link from "next/link";
+// import Link from "next/link";
 import ThemedButton from "../ServerComponents/ThemedButton";
 import { getReadTime } from "@/utils";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
+import { PersistQueryParamsLink } from "../PersistQueryParams";
 
 type getComponentsProps = {
   text_color: any;
@@ -200,7 +201,7 @@ const FeaturedPost = ({
             </span>
           </div>
           <div className="pt-1">
-            <Link
+            <PersistQueryParamsLink
               prefetch={true}
               href={
                 (lang == "en-us" ? "blog/" : "/es/blog/") + featuredPost.uid
@@ -211,7 +212,7 @@ const FeaturedPost = ({
                   {lang == "en-us" ? "Read More" : "Leer Más"}
                 </span>
               </ThemedButton>
-            </Link>
+            </PersistQueryParamsLink>
           </div>
         </div>
       </div>
