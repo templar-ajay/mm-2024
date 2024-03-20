@@ -106,7 +106,7 @@ const Feature = async ({
             style={{ color: text_color || "" }}
           >
             <div className="flex gap-y-0 py-0 flex-col largeTablet:flex-col">
-              <div className="flex flex-col px-6 ">
+              <div className="flex flex-col pl-6 pr-1">
                 {/* gap-y-8 */}
                 <div
                   style={{
