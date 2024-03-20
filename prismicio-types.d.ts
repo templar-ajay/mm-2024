@@ -1182,6 +1182,16 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export interface IframeSliceDefaultPrimary {
   /**
+   * Title field in *Iframe → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iframe.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
    * iFrame field in *Iframe → Primary*
    *
    * - **Field Type**: Text

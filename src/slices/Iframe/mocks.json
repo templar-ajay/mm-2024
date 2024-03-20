@@ -17,6 +17,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "29",
 				"type": "Number"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Lying"
+						}
+					}
+				]
 			}
 		},
 		"items": []
