@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"iframe": {
+				"__TYPE__": "FieldContent",
+				"value": "activity",
+				"type": "Text"
+			},
+			"max_width": {
+				"__TYPE__": "FieldContent",
+				"value": "36",
+				"type": "Number"
+			},
+			"height": {
+				"__TYPE__": "FieldContent",
+				"value": "29",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]

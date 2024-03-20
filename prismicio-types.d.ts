@@ -388,6 +388,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | IframeSlice
   | OurTeamSlice
   | LeadMagnetSlice
   | FaqSlice
@@ -1177,6 +1178,68 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Iframe → Primary*
+ */
+export interface IframeSliceDefaultPrimary {
+  /**
+   * iFrame field in *Iframe → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iframe.primary.iframe
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  iframe: prismic.KeyTextField;
+
+  /**
+   * Max Width field in *Iframe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iframe.primary.max_width
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  max_width: prismic.NumberField;
+
+  /**
+   * Height field in *Iframe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iframe.primary.height
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  height: prismic.NumberField;
+}
+
+/**
+ * Default variation for Iframe Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IframeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IframeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Iframe*
+ */
+type IframeSliceVariation = IframeSliceDefault;
+
+/**
+ * Iframe Shared Slice
+ *
+ * - **API ID**: `iframe`
+ * - **Description**: Iframe
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IframeSlice = prismic.SharedSlice<"iframe", IframeSliceVariation>;
+
+/**
  * Primary content in *LeadMagnet → Primary*
  */
 export interface LeadMagnetSliceDefaultPrimary {
@@ -1432,6 +1495,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      IframeSlice,
+      IframeSliceDefaultPrimary,
+      IframeSliceVariation,
+      IframeSliceDefault,
       LeadMagnetSlice,
       LeadMagnetSliceDefaultPrimary,
       LeadMagnetSliceVariation,

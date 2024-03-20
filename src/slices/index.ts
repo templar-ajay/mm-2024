@@ -8,6 +8,7 @@ export const components = {
   feature: dynamic(() => import("./Feature")),
   footer_block: dynamic(() => import("./FooterBlock")),
   hero: dynamic(() => import("./Hero")),
+  iframe: dynamic(() => import("./Iframe")),
   lead_magnet: dynamic(() => import("./LeadMagnet")),
   our_team: dynamic(() => import("./OurTeam")),
   video_testimonial: dynamic(() => import("./VideoTestimonial")),
